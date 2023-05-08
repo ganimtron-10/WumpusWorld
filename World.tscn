@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0gshn84ljhrn"]
+
+[ext_resource type="Script" path="res://Grid.gd" id="1_2rk0f"]
+[ext_resource type="FontFile" uid="uid://c8bih7g3m7vwu" path="res://ChangaOne-Regular.ttf" id="2_m4ope"]
+[ext_resource type="FontFile" uid="uid://drxkwd8j4cop1" path="res://Righteous-Regular.ttf" id="3_tr8jb"]
+
+[node name="World" type="Node2D"]
+
+[node name="Grid" type="Node2D" parent="."]
+script = ExtResource("1_2rk0f")
+
+[node name="BottomInfo" type="CanvasLayer" parent="."]
+
+[node name="Name" type="Control" parent="BottomInfo"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="Label" type="Label" parent="BottomInfo/Name"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -102.0
+offset_top = 19.0
+offset_right = 104.0
+offset_bottom = 55.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_m4ope")
+theme_override_font_sizes/font_size = 30
+text = "Wumpus World"
+
+[node name="Info" type="Label" parent="BottomInfo/Name"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -85.0
+offset_top = -95.0
+offset_right = 93.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_tr8jb")
+theme_override_font_sizes/font_size = 25
+text = "WASD - Movement
+IJKL - Look Around
+X - Shoot   R - Reset"
+horizontal_alignment = 1
+vertical_alignment = 1

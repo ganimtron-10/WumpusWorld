@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://dwl1c2i71agtb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufk3p"]
+region = Rect2(0, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cuygw"]
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svsli"]
+region = Rect2(0, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vivim"]
+region = Rect2(32, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsj0a"]
+region = Rect2(0, 80, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qlpci"]
+load_path = "res://.godot/imported/tilemap_packed.png-7b301e6705a57389d2cd02d385b33920.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5q48"]
+atlas = SubResource("CompressedTexture2D_qlpci")
+region = Rect2(128, 144, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jglhu"]
+load_path = "res://.godot/imported/tilemap_packed.png-7b301e6705a57389d2cd02d385b33920.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8htmb"]
+atlas = SubResource("CompressedTexture2D_jglhu")
+region = Rect2(96, 80, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2ifg3"]
+load_path = "res://.godot/imported/tilemap_packed.png-7b301e6705a57389d2cd02d385b33920.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpuju"]
+atlas = SubResource("CompressedTexture2D_2ifg3")
+region = Rect2(16, 144, 16, 16)
+
+[node name="Tile" type="Node2D"]
+scale = Vector2(8, 8)
+
+[node name="Border" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(1.05, 1.05)
+texture = SubResource("AtlasTexture_ufk3p")
+
+[node name="Ground" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_cuygw")
+
+[node name="Gold" type="Sprite2D" parent="."]
+visible = false
+texture = SubResource("AtlasTexture_svsli")
+
+[node name="Breeze" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(4, -4)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_vivim")
+
+[node name="Stench" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-4, -4)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_rsj0a")
+
+[node name="GoldBar" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(5.6549, 5.16471, 0, 1)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_h5q48")
+
+[node name="Pit" type="Sprite2D" parent="."]
+visible = false
+texture = SubResource("AtlasTexture_8htmb")
+
+[node name="Wumpus" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = SubResource("AtlasTexture_wpuju")
