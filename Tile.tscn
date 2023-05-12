@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d1s555kr330jh"]
+[gd_scene load_steps=19 format=3 uid="uid://d1s555kr330jh"]
 
 [ext_resource type="Script" path="res://Tile.gd" id="1_1pfd3"]
 [ext_resource type="Texture2D" uid="uid://beugcmxqql2hc" path="res://tilemap_packed.png" id="1_jbies"]
@@ -7,8 +7,11 @@
 atlas = ExtResource("1_jbies")
 region = Rect2(0, 64, 16, 16)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wqhsb"]
+load_path = "res://.godot/imported/tilemap_packed.png-7b301e6705a57389d2cd02d385b33920.ctex"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_cuygw"]
-atlas = ExtResource("1_jbies")
+atlas = SubResource("CompressedTexture2D_wqhsb")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_svsli"]
@@ -36,6 +39,13 @@ load_path = "res://.godot/imported/tilemap_packed.png-7b301e6705a57389d2cd02d385
 atlas = SubResource("CompressedTexture2D_2ifg3")
 region = Rect2(16, 144, 16, 16)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pnpk2"]
+load_path = "res://.godot/imported/tilemap_packed.png-7b301e6705a57389d2cd02d385b33920.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3837m"]
+atlas = SubResource("CompressedTexture2D_pnpk2")
+region = Rect2(16, 112, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_vivim"]
 atlas = ExtResource("1_jbies")
 region = Rect2(32, 80, 16, 16)
@@ -43,6 +53,13 @@ region = Rect2(32, 80, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_rsj0a"]
 atlas = ExtResource("1_jbies")
 region = Rect2(0, 80, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gvdwh"]
+load_path = "res://.godot/imported/tilemap_packed.png-7b301e6705a57389d2cd02d385b33920.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iu8tc"]
+atlas = SubResource("CompressedTexture2D_gvdwh")
+region = Rect2(64, 48, 16, 16)
 
 [node name="Tile" type="Node2D"]
 scale = Vector2(8, 8)
@@ -74,6 +91,11 @@ visible = false
 scale = Vector2(0.9, 0.9)
 texture = SubResource("AtlasTexture_wpuju")
 
+[node name="Player" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.9, 0.9)
+texture = SubResource("AtlasTexture_3837m")
+
 [node name="Breeze" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(4, -4)
@@ -85,3 +107,7 @@ visible = false
 position = Vector2(-4, -4)
 scale = Vector2(0.5, 0.5)
 texture = SubResource("AtlasTexture_rsj0a")
+
+[node name="Wall" type="Sprite2D" parent="."]
+visible = false
+texture = SubResource("AtlasTexture_iu8tc")

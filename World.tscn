@@ -1,10 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0gshn84ljhrn"]
+[gd_scene load_steps=10 format=3 uid="uid://d0gshn84ljhrn"]
 
 [ext_resource type="Script" path="res://Grid.gd" id="1_2rk0f"]
+[ext_resource type="Script" path="res://World.gd" id="1_octwp"]
 [ext_resource type="FontFile" uid="uid://c8bih7g3m7vwu" path="res://ChangaOne-Regular.ttf" id="2_m4ope"]
 [ext_resource type="FontFile" uid="uid://drxkwd8j4cop1" path="res://Righteous-Regular.ttf" id="3_tr8jb"]
+[ext_resource type="PackedScene" uid="uid://cyqefaubgrjbu" path="res://Player.tscn" id="5_na0d0"]
+[ext_resource type="Texture2D" uid="uid://beugcmxqql2hc" path="res://tilemap_packed.png" id="5_xr4w3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5xe6"]
+atlas = ExtResource("5_xr4w3")
+region = Rect2(32, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bg6p"]
+atlas = ExtResource("5_xr4w3")
+region = Rect2(0, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0q81u"]
+atlas = ExtResource("5_xr4w3")
+region = Rect2(128, 144, 16, 16)
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_octwp")
 
 [node name="Grid" type="Node2D" parent="."]
 script = ExtResource("1_2rk0f")
@@ -37,16 +53,12 @@ text = "Wumpus World"
 
 [node name="Info" type="Label" parent="BottomInfo/Name"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -85.0
-offset_top = -95.0
-offset_right = 93.0
-offset_bottom = -8.0
-grow_horizontal = 2
+offset_left = 30.0
+offset_top = -105.0
+offset_right = 270.0
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("3_tr8jb")
 theme_override_font_sizes/font_size = 25
@@ -55,3 +67,50 @@ IJKL - Look Around
 X - Shoot   R - Reset"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Legend" type="Control" parent="BottomInfo/Name"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Stench" type="Sprite2D" parent="BottomInfo/Name/Legend"]
+position = Vector2(440, 630)
+scale = Vector2(1.8, 1.8)
+texture = SubResource("AtlasTexture_l5xe6")
+
+[node name="Breeze" type="Sprite2D" parent="BottomInfo/Name/Legend"]
+position = Vector2(440, 666)
+scale = Vector2(1.8, 1.8)
+texture = SubResource("AtlasTexture_8bg6p")
+
+[node name="Potion" type="Sprite2D" parent="BottomInfo/Name/Legend"]
+position = Vector2(440, 700)
+scale = Vector2(1.8, 1.8)
+texture = SubResource("AtlasTexture_0q81u")
+
+[node name="LegendInfo" type="Label" parent="BottomInfo/Name/Legend"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -241.0
+offset_top = -107.0
+offset_right = -1.0
+offset_bottom = -2.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_tr8jb")
+theme_override_font_sizes/font_size = 25
+text = "- Stench
+- Breeze
+- Potion"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player" parent="." instance=ExtResource("5_na0d0")]

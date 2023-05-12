@@ -5,12 +5,17 @@ func _ready():
 	resetTile()
 
 func resetTile():
+	wall(true)
 	gold(false)
 	breeze(false)
 	stench(false)
 	goldbar(false)
 	pit(false)
 	wumpus(false)
+#	player(false)
+
+func wall(val):
+	$Wall.visible = val
 
 func gold(val):
 	$Gold.visible = val
@@ -29,3 +34,6 @@ func pit(val):
 
 func wumpus(val):
 	$Wumpus.visible = val
+
+func player(val):
+	$Player.visible = val

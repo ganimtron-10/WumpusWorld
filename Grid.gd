@@ -12,6 +12,7 @@ func resetMap():
 		for j in range(height):
 			var tile = get_node("Tile%s%s"%[i,j])
 			tile.resetTile()
+	get_parent().get_node("Player").resetPlayer()
 	createMap()
 
 func _input (event):
@@ -78,6 +79,11 @@ func findPlace(width,height):
 func createMap():
 	var exclude = [Vector2i(3,0)]
 	var pos
+	
+	var start = get_node("Tile30")
+	start.wall(false)
+#	start.player(true)
+	
 	
 	var pitNum = 3
 	while pitNum > 0:
