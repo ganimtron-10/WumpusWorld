@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cyqefaubgrjbu"]
+[gd_scene load_steps=4 format=3 uid="uid://c4ua60dhovnkt"]
 
 [ext_resource type="Texture2D" uid="uid://beugcmxqql2hc" path="res://tilemap_packed.png" id="1_ohbw1"]
-[ext_resource type="Script" path="res://Player.gd" id="1_wx56g"]
+
+[sub_resource type="GDScript" id="GDScript_0qqew"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yhen8"]
 atlas = ExtResource("1_ohbw1")
@@ -9,7 +10,7 @@ region = Rect2(16, 112, 16, 16)
 
 [node name="Player" type="Node2D"]
 scale = Vector2(8, 8)
-script = ExtResource("1_wx56g")
+script = SubResource("GDScript_0qqew")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_yhen8")

@@ -12,7 +12,12 @@ func resetTile():
 	goldbar(false)
 	pit(false)
 	wumpus(false)
-#	player(false)
+	weapon(false)
+	player(false)
+	red(false)
+
+func red(val):
+	$Red.visible = val
 
 func wall(val):
 	$Wall.visible = val
@@ -37,3 +42,22 @@ func wumpus(val):
 
 func player(val):
 	$Player.visible = val
+
+func weapon(val):
+	$Weapon.visible = val
+
+func moveWeapon(val):
+	weapon(true)
+	match val:
+		"left":
+			$Weapon.position = Vector2(-8,0)
+			$Weapon.rotation_degrees = -90
+		"right":
+			$Weapon.position = Vector2(8,0)
+			$Weapon.rotation_degrees = 90
+		"front":
+			$Weapon.position = Vector2(0,-8)
+			$Weapon.rotation_degrees = 0
+		"back":
+			$Weapon.position = Vector2(0,8)
+			$Weapon.rotation_degrees = 180

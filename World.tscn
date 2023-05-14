@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://World.gd" id="1_octwp"]
 [ext_resource type="FontFile" uid="uid://c8bih7g3m7vwu" path="res://ChangaOne-Regular.ttf" id="2_m4ope"]
 [ext_resource type="FontFile" uid="uid://drxkwd8j4cop1" path="res://Righteous-Regular.ttf" id="3_tr8jb"]
-[ext_resource type="PackedScene" uid="uid://cyqefaubgrjbu" path="res://Player.tscn" id="5_na0d0"]
 [ext_resource type="Texture2D" uid="uid://beugcmxqql2hc" path="res://tilemap_packed.png" id="5_xr4w3"]
+[ext_resource type="AudioStream" uid="uid://lihoslj2j1kv" path="res://scream.mp3" id="6_3ignu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l5xe6"]
 atlas = ExtResource("5_xr4w3")
@@ -50,6 +50,23 @@ grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_m4ope")
 theme_override_font_sizes/font_size = 30
 text = "Wumpus World"
+
+[node name="Score" type="Label" parent="BottomInfo/Name"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 219.0
+offset_top = -111.0
+offset_right = 459.0
+offset_bottom = -6.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_tr8jb")
+theme_override_font_sizes/font_size = 30
+text = "Score:
+%s"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Info" type="Label" parent="BottomInfo/Name"]
 layout_mode = 1
@@ -113,4 +130,34 @@ text = "- Stench
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Player" parent="." instance=ExtResource("5_na0d0")]
+[node name="DeadMessage" type="ColorRect" parent="BottomInfo/Name"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.745098)
+
+[node name="Message" type="Label" parent="BottomInfo/Name/DeadMessage"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -52.5
+offset_right = 120.0
+offset_bottom = 52.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_tr8jb")
+theme_override_font_sizes/font_size = 35
+text = "You Died!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_3ignu")

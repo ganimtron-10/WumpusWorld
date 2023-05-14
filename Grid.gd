@@ -12,7 +12,7 @@ func resetMap():
 		for j in range(height):
 			var tile = get_node("Tile%s%s"%[i,j])
 			tile.resetTile()
-	get_parent().get_node("Player").resetPlayer()
+	get_parent().resetPlayer()
 	createMap()
 
 func _input (event):
@@ -103,6 +103,10 @@ func createMap():
 		if checkNotIn(exclude,pos):
 			addGold(exclude,pos.x,pos.y)
 			break
-	
+
+func revealAll():
+	for i in range(width):
+		for j in range(height):
+			get_node("Tile%s%s"%[i,j]).wall(false)
 	
 	
